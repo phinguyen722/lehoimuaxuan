@@ -118,7 +118,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Header onOpenDonation={() => setIsModalOpen(true)} />
-      <main className="w-full px-4 lg:px-8 py-8 grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
+      <main className="w-full px-4 lg:px-8 pt-8 pb-4 grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
         <div className="xl:col-span-2">
           <Hero 
             totalAmount={totalAmount} 

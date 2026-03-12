@@ -20,7 +20,7 @@ interface DonationTableProps {
 export default function DonationTable({ donations, loading, error }: DonationTableProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
 
   const filteredDonations = donations.filter(d => 
     d.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -94,7 +94,7 @@ export default function DonationTable({ donations, loading, error }: DonationTab
         ) : filteredDonations.length > 0 ? (
           <>
             <div className="w-full overflow-x-auto">
-              <table className="w-full text-left border-collapse block sm:table min-w-[600px] xl:min-w-0">
+              <table className="w-full text-left border-collapse block sm:table">
                 <thead className="hidden sm:table-header-group">
                   <tr className="bg-white/30 border-b border-slate-100">
                     <th className="px-4 sm:px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-wider">Ngày tháng</th>

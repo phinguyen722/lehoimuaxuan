@@ -3,9 +3,9 @@ import { Heart, Phone, Mail, MapPin, Award, Share2, Globe } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900/90 backdrop-blur-md text-white pt-20 pb-10">
+    <footer className="bg-slate-900/90 backdrop-blur-md text-white pt-6 pb-4">
       <div className="w-full px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-4">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-slate-800 text-center text-slate-500 text-xs">
+        <div className="pt-4 border-t border-slate-800 text-center text-slate-500 text-xs">
           <p>© 2026 Lễ Hội Mùa Xuân. All rights reserved. Mọi đóng góp của bạn đều trân quý.</p>
         </div>
       </div>
