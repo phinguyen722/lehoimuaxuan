@@ -122,7 +122,6 @@ export default function App() {
         <div className="xl:col-span-2">
           <Hero 
             totalAmount={totalAmount} 
-            onOpenDonation={() => setIsModalOpen(true)} 
           />
         </div>
         <div className="xl:col-span-1">

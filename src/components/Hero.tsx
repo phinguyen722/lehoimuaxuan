@@ -4,7 +4,6 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, anima
 
 interface HeroProps {
   totalAmount: string;
-  onOpenDonation: () => void;
 }
 
 function AnimatedNumber({ value }: { value: number }) {
@@ -24,7 +23,7 @@ function AnimatedNumber({ value }: { value: number }) {
   return <motion.span>{rounded}</motion.span>;
 }
 
-export default function Hero({ totalAmount, onOpenDonation }: HeroProps) {
+export default function Hero({ totalAmount }: HeroProps) {
   // Parse totalAmount string (e.g., "241.300.000") to number
   const numericAmount = parseInt(totalAmount.replace(/\./g, ''), 10) || 0;
 
@@ -56,9 +55,9 @@ export default function Hero({ totalAmount, onOpenDonation }: HeroProps) {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
-        className="order-2 lg:col-start-2 lg:row-start-1 flex flex-col h-full"
+        className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 flex flex-col h-full"
       >
-        <div>
+        <div className="shrink-0">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 text-red-600 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6">
             Dự án thiện nguyện 2026
           </div>
@@ -76,36 +75,23 @@ export default function Hero({ totalAmount, onOpenDonation }: HeroProps) {
             Cây cầu bắc qua sông Kỳ Cùng chiều dài 60m, rộng 4m hỗ trợ 6.634 nhân khẩu sinh sống hai bên bờ sông
           </p>
         </div>
+
+        <div className="flex-1 bg-white rounded-3xl shadow-xl shadow-red-500/5 border border-slate-100 overflow-hidden relative min-h-[250px] flex flex-col sm:flex-row items-center justify-center p-4 sm:p-6">
+          <div className="sm:absolute sm:left-6 sm:top-1/2 sm:-translate-y-1/2 z-10 mb-4 sm:mb-0">
+            <p className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest text-center sm:text-left sm:w-24 leading-relaxed">
+              Quyên góp tại đây
+            </p>
+          </div>
+          <div className="relative w-full flex-1 min-h-[200px]">
+            <img 
+              src="https://hoangmaistarschool.edu.vn/storage/qr-tu-thien.svg" 
+              alt="QR Quyên góp" 
+              className="absolute inset-0 w-full h-full object-contain"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
       </motion.div>
-
-      <div className="contents lg:flex lg:flex-row lg:items-center lg:gap-6 lg:col-start-2 lg:row-start-2 lg:mt-auto">
-        <div className="order-3 lg:order-none bg-white/90 backdrop-blur-md p-3 sm:p-4 rounded-3xl shadow-xl shadow-red-500/5 border border-slate-100 flex flex-col items-center justify-center w-fit mx-auto lg:mx-0 mb-6 lg:mb-0">
-          <p className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 text-center">Quyên góp tại đây</p>
-          <img 
-            src="https://hoangmaistarschool.edu.vn/storage/qr-tu-thien.svg" 
-            alt="QR Quyên góp" 
-            className="w-full max-w-[220px] h-auto object-contain rounded-lg"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-
-        <div className="order-5 lg:order-none flex flex-col gap-4 w-full sm:w-auto flex-1 mt-6 lg:mt-0">
-          <button 
-            onClick={onOpenDonation}
-            className="px-8 py-4 bg-red-600 text-white rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-600/20 active:scale-95 w-full"
-          >
-            Quyên góp ngay
-          </button>
-          <a 
-            href="https://docs.google.com/spreadsheets/d/1wDy-YESyzyN36OqaapXAjBa7_7yO-0IAU8mknow2yX0/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 border-2 border-red-600 text-red-600 rounded-xl font-bold hover:bg-red-50 transition-all active:scale-95 text-center w-full"
-          >
-            Xem báo cáo
-          </a>
-        </div>
-      </div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
